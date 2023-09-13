@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "FWTestFramework"
   spec.version      = "0.0.1"
-  spec.summary      = "A short description of FWTestFramework."
+  spec.summary      = "测试for FWTestFramework"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,6 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
+      SDK是xxx用来xxxx的工具包，其中提供大量的API用于帮助用户开发设备的各项功能....尽量写长一点。
                    DESC
 
   spec.homepage     = "https://github.com/MrJamesFeng/FWTest.git"
