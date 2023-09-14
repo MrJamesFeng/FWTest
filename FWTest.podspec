@@ -44,7 +44,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT"
+  spec.license      = { :type => 'MIT' }
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -61,7 +61,7 @@ Pod::Spec.new do |spec|
   spec.author             = { "丰静" => "812463918@qq.com" }
   # Or just: spec.author    = "丰静"
   # spec.authors            = { "丰静" => "812463918@qq.com" }
-  # spec.social_media_url   = "https://twitter.com/丰静"
+  spec.social_media_url   = "https://groups.google.com/forum/#!forum/cocoapods"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -98,8 +98,9 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  #spec.source_files  = "FWTest/FWTest.framework/Headers/*.{h,m}"
+
   #spec.source_files  = "Classes", "Classes/**/*.{h,m}"
+  spec.source_files = 'Classes/*/*'
   #spec.exclude_files = "Classes/Exclude"
   
   #
@@ -128,7 +129,7 @@ Pod::Spec.new do |spec|
   #  the lib prefix of their name.
   #
 
-  # spec.framework  = "SomeFramework"
+  spec.framework  = "SystemConfiguration"
   # spec.frameworks = "SomeFramework", "AnotherFramework"
 
   # spec.library   = "iconv"
