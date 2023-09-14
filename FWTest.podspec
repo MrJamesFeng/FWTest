@@ -44,7 +44,8 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = { :type => 'MIT' }
+  #spec.license      = { :type => 'MIT' }
+  spec.license      = 'MIT'
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -104,9 +105,9 @@ Pod::Spec.new do |spec|
   #spec.exclude_files = "Classes/Exclude"
   
   #
-  spec.vendored_frameworks = "FWTest.framework"
+  #spec.vendored_frameworks = "FWTest.framework"
 
-  # spec.public_header_files = "Classes/**/*.h"
+  spec.public_header_files = "Classes/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -142,7 +143,7 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # spec.requires_arc = true
+  spec.requires_arc = true
   
   pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64' }
 
