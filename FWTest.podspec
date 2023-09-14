@@ -1,5 +1,10 @@
-#
-#  Be sure to run `pod spec lint FWTestFramework.podspec' to ensure this is a
+#  https://www.jianshu.com/p/6021df983afc
+#  自定义framework上传CocoaPods
+
+#  https://www.jianshu.com/p/743bfd8f1d72
+#  CocoaPods - Podspec文件配置讲解
+
+#  Be sure to run `pod spec lint FWTest.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see https://guides.cocoapods.org/syntax/podspec.html
@@ -15,9 +20,9 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "FWTestFramework"
-  spec.version      = "0.0.3"
-  spec.summary      = "测试for FWTestFramework0.0.3"
+  spec.name         = "FWTest"
+  spec.version      = "0.0.4"
+  spec.summary      = "测试for FWTest0.0.4"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -39,7 +44,8 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT"
+  #spec.license      = { :type => 'MIT' }
+  spec.license      = 'MIT'
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -56,7 +62,7 @@ Pod::Spec.new do |spec|
   spec.author             = { "丰静" => "812463918@qq.com" }
   # Or just: spec.author    = "丰静"
   # spec.authors            = { "丰静" => "812463918@qq.com" }
-  # spec.social_media_url   = "https://twitter.com/丰静"
+  spec.social_media_url   = "https://groups.google.com/forum/#!forum/cocoapods"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -81,7 +87,8 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/MrJamesFeng/FWTest.git", :tag => "#{spec.version}" }
+  spec.source = { :git => "https://github.com/MrJamesFeng/FWTest.git", :tag => "#{spec.version}" }
+  #spec.source = {:path=> '.'}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -92,11 +99,15 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "FWTest.framework/Headers/*.{h,m}"
-  #spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  #spec.exclude_files = "Classes/Exclude"
 
-  # spec.public_header_files = "Classes/**/*.h"
+  #spec.source_files  = "Classes", "Classes/**/*.{h,m}"
+  spec.source_files = 'Classes/*/*'
+  #spec.exclude_files = "Classes/Exclude"
+  
+  #
+  #spec.vendored_frameworks = "FWTest.framework"
+
+  spec.public_header_files = "Classes/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -119,7 +130,7 @@ Pod::Spec.new do |spec|
   #  the lib prefix of their name.
   #
 
-  # spec.framework  = "SomeFramework"
+  spec.framework  = "SystemConfiguration"
   # spec.frameworks = "SomeFramework", "AnotherFramework"
 
   # spec.library   = "iconv"
@@ -132,7 +143,9 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # spec.requires_arc = true
+  spec.requires_arc = true
+  
+  pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64' }
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
