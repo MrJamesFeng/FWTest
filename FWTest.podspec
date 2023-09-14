@@ -21,7 +21,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "FWTest"
-  spec.version      = "0.0.4"
+  spec.version      = "0.0.5"
   spec.summary      = "测试for FWTest0.0.4"
 
   # This description is used to generate tags and improve search results.
@@ -62,7 +62,7 @@ Pod::Spec.new do |spec|
   spec.author             = { "丰静" => "812463918@qq.com" }
   # Or just: spec.author    = "丰静"
   # spec.authors            = { "丰静" => "812463918@qq.com" }
-  spec.social_media_url   = "https://groups.google.com/forum/#!forum/cocoapods"
+  #spec.social_media_url   = "https://groups.google.com/forum/#!forum/cocoapods"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -101,13 +101,15 @@ Pod::Spec.new do |spec|
 
 
   #spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.source_files = 'Classes/*/*'
+  spec.source_files  = "FWTest.framework", "FWTest.framework/**/*.{h,m}"
+  
+  #spec.source_files = 'Classes/*/*'
   #spec.exclude_files = "Classes/Exclude"
   
   #
   #spec.vendored_frameworks = "FWTest.framework"
 
-  spec.public_header_files = "Classes/**/*.h"
+  #spec.public_header_files = "Classes/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -130,8 +132,11 @@ Pod::Spec.new do |spec|
   #  the lib prefix of their name.
   #
 
-  spec.framework  = "SystemConfiguration"
-  # spec.frameworks = "SomeFramework", "AnotherFramework"
+  spec.frameworks  = "SystemConfiguration","UIKit","AVFoundation"
+  spec.frameworks  = "UIKit","AVFoundation"
+  #spec.frameworks = "SomeFramework", "AnotherFramework"
+  
+  spec.static_framework = true
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
@@ -143,9 +148,9 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  spec.requires_arc = true
+  #spec.requires_arc = true
   
-  pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64' }
+  #pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64' }
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
