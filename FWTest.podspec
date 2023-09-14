@@ -87,7 +87,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.source = { :git => "https://github.com/MrJamesFeng/FWTest.git", :tag => "#{spec.version}" }
-  spec.source = {:path=> '.'}
+  #spec.source = {:path=> '.'}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -98,7 +98,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "FWTest/FWTest.framework/Headers/*.{h,m}"
+  #spec.source_files  = "FWTest/FWTest.framework/Headers/*.{h,m}"
   #spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   #spec.exclude_files = "Classes/Exclude"
   
