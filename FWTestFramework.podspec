@@ -20,9 +20,9 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "FWTest"
-  spec.version      = "0.0.5"
-  spec.summary      = "测试for FWTest0.0.4"
+  spec.name         = "FWTestFramework"
+  spec.version      = "0.0.6"
+  spec.summary      = "测试for FWTest0.0.6"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -75,7 +75,9 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "11.0"
 
   #  When using multiple platforms
-  # spec.ios.deployment_target = "5.0"
+  
+  spec.ios.deployment_target = "11.0"
+  
   # spec.osx.deployment_target = "10.7"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
@@ -88,7 +90,6 @@ Pod::Spec.new do |spec|
   #
 
   spec.source = { :git => "https://github.com/MrJamesFeng/FWTest.git", :tag => "#{spec.version}" }
-  #spec.source = {:path=> '.'}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -99,17 +100,18 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-
-  #spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.source_files  = "FWTest.framework", "FWTest.framework/**/*.{h,m}"
   
-  #spec.source_files = 'Classes/*/*'
-  #spec.exclude_files = "Classes/Exclude"
+  #spec.source_files  = "FWTest.framework/**/*"
   
-  #
-  #spec.vendored_frameworks = "FWTest.framework"
+  spec.ios.vendored_frameworks = "FWTest/FWTest.framework"
 
-  #spec.public_header_files = "Classes/**/*.h"
+  #spec.public_header_files = "FWTest.framework/Headers/FWTest.h"
+  
+  spec.library   = "z"
+  
+  spec.user_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
+  }
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -132,11 +134,9 @@ Pod::Spec.new do |spec|
   #  the lib prefix of their name.
   #
 
-  spec.frameworks  = "SystemConfiguration","UIKit","AVFoundation"
-  spec.frameworks  = "UIKit","AVFoundation"
-  #spec.frameworks = "SomeFramework", "AnotherFramework"
+  spec.frameworks  = "SystemConfiguration"
   
-  spec.static_framework = true
+  #spec.static_framework = true
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
