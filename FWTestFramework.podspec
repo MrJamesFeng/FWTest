@@ -20,9 +20,9 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "FWTest"
-  spec.version      = "0.0.4"
-  spec.summary      = "测试for FWTest0.0.4"
+  spec.name         = "FWTestFramework"
+  spec.version      = "0.0.6"
+  spec.summary      = "测试for FWTest0.0.6"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -62,7 +62,7 @@ Pod::Spec.new do |spec|
   spec.author             = { "丰静" => "812463918@qq.com" }
   # Or just: spec.author    = "丰静"
   # spec.authors            = { "丰静" => "812463918@qq.com" }
-  spec.social_media_url   = "https://groups.google.com/forum/#!forum/cocoapods"
+  #spec.social_media_url   = "https://groups.google.com/forum/#!forum/cocoapods"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -75,7 +75,9 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "11.0"
 
   #  When using multiple platforms
-  # spec.ios.deployment_target = "5.0"
+  
+  spec.ios.deployment_target = "11.0"
+  
   # spec.osx.deployment_target = "10.7"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
@@ -88,7 +90,6 @@ Pod::Spec.new do |spec|
   #
 
   spec.source = { :git => "https://github.com/MrJamesFeng/FWTest.git", :tag => "#{spec.version}" }
-  #spec.source = {:path=> '.'}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -99,15 +100,18 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-
-  #spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.source_files = 'Classes/*/*'
-  #spec.exclude_files = "Classes/Exclude"
   
-  #
-  #spec.vendored_frameworks = "FWTest.framework"
+  #spec.source_files  = "FWTest.framework/**/*"
+  
+  spec.ios.vendored_frameworks = "FWTest/FWTest.framework"
 
-  spec.public_header_files = "Classes/**/*.h"
+  #spec.public_header_files = "FWTest.framework/Headers/FWTest.h"
+  
+  spec.library   = "z"
+  
+  spec.user_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
+  }
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -130,8 +134,9 @@ Pod::Spec.new do |spec|
   #  the lib prefix of their name.
   #
 
-  spec.framework  = "SystemConfiguration"
-  # spec.frameworks = "SomeFramework", "AnotherFramework"
+  spec.frameworks  = "SystemConfiguration"
+  
+  #spec.static_framework = true
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
@@ -143,9 +148,9 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  spec.requires_arc = true
+  #spec.requires_arc = true
   
-  pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64' }
+  #pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64' }
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
