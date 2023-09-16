@@ -21,8 +21,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "FWTestFramework"
-  spec.version      = "0.0.6"
-  spec.summary      = "测试for FWTest0.0.6"
+  spec.version      = "0.0.7"
+  spec.summary      = "测试for FWTest0.0.7"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -105,7 +105,7 @@ Pod::Spec.new do |spec|
   
   spec.ios.vendored_frameworks = "FWTest/FWTest.framework"
 
-  #spec.public_header_files = "FWTest.framework/Headers/FWTest.h"
+  spec.public_header_files = "FWTest.framework/Headers/FJTest1.h"
   
   spec.library   = "z"
   
